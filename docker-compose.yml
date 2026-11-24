@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: mediassist
+      POSTGRES_USER: mediassist
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-demo-db-password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mediassist -d mediassist"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      args:
+        INSTALL_AGENTS: ${INSTALL_AGENTS:-true}
+    environment:
+      DATABASE_URL: postgresql+psycopg://mediassist:${POSTGRES_PASSWORD:-local-demo-db-password}@postgres:5432/mediassist
+      JWT_SECRET: ${JWT_SECRET:-local-demo-only-change-this-secret-123456789}
+      AGENT_MODE: ${AGENT_MODE:-crewai}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GROQ_MODEL: ${GROQ_MODEL:-groq/llama-3.3-70b-versatile}
+      DEMO_SEED: ${DEMO_SEED:-true}
+      APP_ENV: ${APP_ENV:-development}
+      CORS_ORIGINS: http://localhost:5173,http://localhost:8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8000:8000"
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on: [backend]
+    ports:
+      - "127.0.0.1:8080:80"
+volumes:
+  postgres_data:

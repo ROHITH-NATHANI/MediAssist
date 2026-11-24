@@ -1,0 +1,120 @@
+{
+  "cases": 9,
+  "passed": 9,
+  "mean_latency_ms": 4170.5,
+  "results": [
+    {
+      "message": "Find doctor appointments",
+      "expected": [
+        "appointment"
+      ],
+      "actual": [
+        "appointment"
+      ],
+      "passed": true,
+      "urgent": false,
+      "latency_ms": 5407.4,
+      "citations": 0
+    },
+    {
+      "message": "Explain CBC report",
+      "expected": [
+        "health",
+        "report"
+      ],
+      "actual": [
+        "health",
+        "report"
+      ],
+      "passed": true,
+      "urgent": false,
+      "latency_ms": 5320.89,
+      "citations": 2
+    },
+    {
+      "message": "Show medication reminders",
+      "expected": [
+        "medication"
+      ],
+      "actual": [
+        "medication"
+      ],
+      "passed": true,
+      "urgent": false,
+      "latency_ms": 5532.85,
+      "citations": 0
+    },
+    {
+      "message": "What is blood pressure",
+      "expected": [
+        "health"
+      ],
+      "actual": [
+        "health"
+      ],
+      "passed": true,
+      "urgent": false,
+      "latency_ms": 4157.4,
+      "citations": 3
+    },
+    {
+      "message": "Book a doctor and show medication reminders",
+      "expected": [
+        "appointment",
+        "medication"
+      ],
+      "actual": [
+        "appointment",
+        "medication"
+      ],
+      "passed": true,
+      "urgent": false,
+      "latency_ms": 4754.61,
+      "citations": 0
+    },
+    {
+      "message": "Explain my blood test report and book doctor appointments",
+      "expected": [
+        "appointment",
+        "health",
+        "report"
+      ],
+      "actual": [
+        "appointment",
+        "health",
+        "report"
+      ],
+      "passed": true,
+      "urgent": false,
+      "latency_ms": 6188.79,
+      "citations": 3
+    },
+    {
+      "message": "I have chest pain",
+      "expected": [],
+      "actual": [],
+      "passed": true,
+      "urgent": true,
+      "latency_ms": 2060.53,
+      "citations": 0
+    },
+    {
+      "message": "I cannot breathe and need a doctor",
+      "expected": [],
+      "actual": [],
+      "passed": true,
+      "urgent": true,
+      "latency_ms": 2023.9,
+      "citations": 0
+    },
+    {
+      "message": "I have severe bleeding",
+      "expected": [],
+      "actual": [],
+      "passed": true,
+      "urgent": true,
+      "latency_ms": 2088.15,
+      "citations": 0
+    }
+  ]
+}

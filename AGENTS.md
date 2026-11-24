@@ -1,0 +1,3 @@
+# Antigravity IDE project context
+
+Read README.md and docs/ARCHITECTURE.md before editing. Keep the product title MediAssist – Multi-Agent Healthcare Management Platform. Keep React/TypeScript, FastAPI, CrewAI/Groq and PostgreSQL. Do not add the excluded libraries listed in the original project requirements: LangChain, LangGraph, FAISS, Gemini, Sentence Transformers or Streamlit. Use synthetic data only. Keep patient-level access controls and explicit booking confirmation; no medical diagnosis, prescribing, or autonomous dosage changes. Run backend tests and frontend build before committing changes. Never commit secrets.

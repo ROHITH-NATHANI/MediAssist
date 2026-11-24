@@ -1,0 +1,2 @@
+-r requirements.txt
+crewai[litellm]>=0.130,<2
